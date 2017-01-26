@@ -23,7 +23,9 @@ Dependências:
 Compatibilidade
 
 Firefox 4+ (Win, Mac, Linux);
+
 IE10+ (Win);
+
 Chrome 8+ (Win, Mac, Linux, Android, iPhone);
 
 ---------------------------------------------
