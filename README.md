@@ -19,6 +19,15 @@ Dependências:
 
 ---------------------------------------------
 
+---------------------------------------------
+Compatibilidade
+
+Firefox 4+ (Win, Mac, Linux);
+IE10+ (Win);
+Chrome 8+ (Win, Mac, Linux, Android, iPhone);
+
+---------------------------------------------
+
 Após baixar, abra o terminal e utilize o comando "bower update" dentro do diretório principal do projeto.
 
 Abra o arquivo index.html, preencha todos os campos e clique em registrar.
