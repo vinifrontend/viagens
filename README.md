@@ -20,7 +20,6 @@ Dependências:
 ---------------------------------------------
 
 Após baixar, abra o terminal e utilize o comando "bower update" dentro do diretório principal do projeto.
-Para baixar o normalize.css execute o comando
 
 Abra o arquivo index.html, preencha todos os campos e clique em registrar.
 
