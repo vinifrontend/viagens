@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Página de cadastro</title>
+
+    <link rel="stylesheet" href="node_modules/normalize_css/normalize.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body ng-app="cadastro">
+
+<div class="container-fluid" ng-controller="CadastroController as cadastro">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <h1 class="text-center">Agende sua viagem</h1>
+        <!--formulario de cadastro-->
+        <form ng-submit="registrarPessoa()" id="form" class="col-xs-12 col-sm-12 col-md-12">
+            <p class="h3">Dados da viagem</p>
+            <div class="row">
+                <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Origem</span>
+                        <select name="origem" ng-model="origem" ng-options="estado.alias for estado in listaEstados" id="selectOrigem" ng-required="true" class="form-control chosen-select" placeholder="Escolha o local de partida">
+                            <option value="">Escolha o local de partida</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Destino</span>
+                        <select name="destino" ng-model="destino" ng-options="estado.alias for estado in listaEstados" id="selectDestino" ng-required="true"  class="form-control" placeholder="Escolha o local de destino">
+                            <option value="">Escolha o local de destino</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <div class='input-group date' id='datetimepickerIda'>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            Partida
+                        </span>
+                        <input name="ida" id="ida" ng-model="ida" ng-required="true"  type='text' ng-blur="updateInputDate()" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-xs-12">
+                    <p class="h3">Transporte</p>
+                </div>
+
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-fighter-jet" aria-hidden="true"></i> Veiculo</span>
+                        <select name="veiculos" class="form-control" ng-model="veiculo" ng-options="veiculo.alias for veiculo in listaVeiculos" ng-required="true"  id="">
+                            <option value="">Selecione o tipo de veiculo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-xs-12">
+                    <p class="h3">Dados para contato</p>
+                </div>
+
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Nome</span>
+                        <input type="text" ng-model="nome" class="form-control" ng-required="true"  name="nome" id="inputNome" placeholder="Nome completo">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">E-mail</span>
+                        <input type="email" ng-model="email" name="email" ng-required="true"  class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Telefone</span>
+                        <input type="tel" ng-model="tel" class="form-control" ng-required="true"  name="telefone" id="inputTel" placeholder="Telefone">
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-xs-12">
+                    <input type="submit" class="btn btn-primary pull-right" value="Registrar">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--lista de pessoas registradas-->
+    <div class="col-md-6 col-xs-12 col-sm-12">
+        <p class="h1 text-center" ng-show="cadastro.cadastros.length">Viajantes cadastrados</p>
+        <div ng-repeat="pessoa in cadastro.cadastros">
+            <ul class="list-group">
+                <li>
+                    <span>Nome: {{pessoa.nome}}</span>
+                    <span>E-mail: {{pessoa.email}}</span>
+                    <span>Telefone: {{pessoa.tel}}</span>
+                    <span>Origem: {{pessoa.origem}}</span>
+                    <span>Destino: {{pessoa.destino}}</span>
+                    <span>Data de partida: {{pessoa.ida}}</span>
+                    <span>Meio de transporte: {{pessoa.veiculo}}</span>
+                </li>
+            </ul>
+        </div>
+        <p class="text-center" ng-show="cadastro.cadastros.length">{{cadastro.cadastros.length}} viagens cadastradas</p>
+    </div>
+</div>
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+<script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script src="bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+
+<script src="assets/js/app.js"></script>
+<script>
+
+    // instanciando plugin de datetimepicker
+    $('#datetimepickerIda').datetimepicker({
+        locale: "pt-BR",
+        sideBySide: true,
+        minDate: new Date()
+    });
+
+    $("input[type='tel']").mask("(00) # 0000-0000");
+
+</script>
+</body>
+</html>

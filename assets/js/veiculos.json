@@ -1,0 +1,24 @@
+[
+
+    {
+        "id": 0,
+        "tipo": "Carro",
+        "alias": "carro"
+    },
+    {
+        "id": 1,
+        "tipo": "Moto",
+        "alias": "moto"
+    },
+    {
+        "id": 2,
+        "tipo": "Taxi",
+        "alias": "taxi"
+    },
+    {
+        "id": 3,
+        "tipo": "Uber",
+        "alias": "uber"
+    }
+
+]

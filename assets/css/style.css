@@ -1,0 +1,16 @@
+ul li{
+    list-style:none;
+    padding: 13px;
+    background-color: #a9ecb5;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.list-group li span+span{
+    display: block;
+}
+
+select.form-control{
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px 4px 4px 0px;
+}

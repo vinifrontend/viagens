@@ -1,0 +1,32 @@
+{
+  "name": "formularioViagens",
+  "description": "Formulario para registrar viajantes",
+  "main": "index.html",
+  "keywords": [
+    "formulario",
+    "angularjs",
+    "bootstrap",
+    "html",
+    "javascript"
+  ],
+  "authors": [
+    "Vinicius Barbosa"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.1",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.45",
+    "jquery": "^3.1.1",
+    "jquery-mask-plugin": "^1.14.9",
+    "bootstrap": "^3.3.7"
+  }
+}
